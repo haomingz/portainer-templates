@@ -17,7 +17,7 @@ services:
     environment:
       - SERVER_NAME=${UI_DOMAIN}
       - MULTISITE=yes
-      - API_WHITELIST_IP=127.0.0.0/8 10.20.29.0/24 10.20.30.0/24 10.20.31.0/24
+      - API_WHITELIST_IP=127.0.0.0/8 10.20.30.0/24
       - ${UI_DOMAIN}_USE_UI=yes
       - ${UI_DOMAIN}_USE_REVERSE_PROXY=yes
       - ${UI_DOMAIN}_REVERSE_PROXY_URL=/admin
@@ -44,7 +44,7 @@ services:
       - ABSOLUTE_URI=http(s)://${UI_DOMAIN}/admin/
 
   mydocker:
-    image: tecnativa/docker-socket-proxy
+    image: tecnativa/docker-socket-proxy:nightly
     networks:
       - bw-docker
     volumes:
@@ -52,20 +52,12 @@ services:
 
 networks:
   bw-services:
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.20.29.0/24
   bw-ui:
     ipam:
       driver: default
       config:
         - subnet: 10.20.30.0/24
   bw-docker:
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.20.31.0/24
 
 volumes:
   bw-data:
