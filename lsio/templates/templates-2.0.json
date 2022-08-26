@@ -7777,6 +7777,35 @@
 			}
 			],
 			"restart_policy": "unless-stopped"
+		},
+		{
+			"categories": ["Proxy", "Tools"],
+			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+			"image": "jc21/nginx-proxy-manager",
+			"logo": "https://nginxproxymanager.com/icon.png",
+			"name": "nginx-proxy-manager",
+			"platform": "linux",
+			"env": [
+			  {
+				"label": "DB_SQLITE_FILE",
+				"name": "DB_SQLITE_FILE",
+				"default": "/data/database.sqlite"
+			  }
+			],
+			"ports": ["80:80/tcp", "81:81/tcp", "443:443/tcp"],
+			"restart_policy": "unless-stopped",
+			"title": "Nginx Proxy Manager",
+			"type": 1,
+			"volumes": [
+			  {
+				"bind": "/volume1/docker/nginx-proxy-manager/data",
+				"container": "/data"
+			  },
+			  {
+				"bind": "/volume1/docker/nginx-proxy-manager/letsencrypt",
+				"container": "/etc/letsencrypt"
+			  }
+			]
 		}
 	]
 }
