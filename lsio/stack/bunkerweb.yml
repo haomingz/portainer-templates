@@ -1,0 +1,64 @@
+---
+version: '3'
+
+services:
+
+  mybunker:
+    image: bunkerity/bunkerweb:1.4.2
+    networks:
+      - bw-services
+      - bw-ui
+    ports:
+      - ${HTTP_PORT}:8080
+      - ${HTTPS_PORT}:8443
+    volumes:
+      - bw-data:/data
+      - bw-confs:/etc/nginx
+    environment:
+      - SERVER_NAME=${UI_DOMAIN}
+      - MULTISITE=yes
+      - API_WHITELIST_IP=127.0.0.0/8 10.20.30.0/24
+      - ${UI_DOMAIN}_USE_UI=yes
+      - ${UI_DOMAIN}_USE_REVERSE_PROXY=yes
+      - ${UI_DOMAIN}_REVERSE_PROXY_URL=/admin
+      - ${UI_DOMAIN}_REVERSE_PROXY_HOST=http://myui:7000
+      - ${UI_DOMAIN}_REVERSE_PROXY_HEADERS=X-Script-Name /admin
+      - ${UI_DOMAIN}_REVERSE_PROXY_INTERCEPT_ERRORS=no
+    labels:
+      - "bunkerweb.UI"
+
+  myui:
+    image: bunkerity/bunkerweb-ui:1.4.2
+    depends_on:
+      - mydocker
+    networks:
+      - bw-ui
+      - bw-docker
+    volumes:
+      - bw-data:/data
+      - bw-confs:/etc/nginx
+    environment:
+      - DOCKER_HOST=tcp://mydocker:2375
+      - ADMIN_USERNAME=${ADMIN_USERNAME}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - ABSOLUTE_URI=http(s)://${UI_DOMAIN}/admin/
+
+  mydocker:
+    image: tecnativa/docker-socket-proxy
+    networks:
+      - bw-docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+networks:
+  bw-services:
+  bw-ui:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.20.30.0/24
+  bw-docker:
+
+volumes:
+  bw-data:
+  bw-confs:

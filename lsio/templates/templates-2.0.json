@@ -7806,6 +7806,44 @@
 				"container": "/etc/letsencrypt"
 			  }
 			]
+		},
+		{
+			"categories": ["Proxy", "Tools"],
+			"description": "BunkerWeb is a web server based on the notorious NGINX and focused on security.",
+			"env": [
+			  {
+				"label": "UI_DOMAIN",
+				"name": "UI_DOMAIN"
+			  },
+			  {
+				"label": "ADMIN_USERNAME",
+				"name": "ADMIN_USERNAME"
+			  },
+			  {
+				"label": "ADMIN_PASSWORD",
+				"name": "ADMIN_PASSWORD"
+			  },
+			  {
+				"default": "80",
+				"label": "HTTP_PORT",
+				"name": "HTTP_PORT"
+			  },
+			  {
+				"default": "443",
+				"label": "HTTPS_PORT",
+				"name": "HTTPS_PORT"
+			  }
+			],
+			"logo": "https://raw.githubusercontent.com/bunkerity/bunkerweb/master/logo.png",
+			"name": "BunkerWeb",
+			"note": "The Web UI is a web application that helps you manage your BunkerWeb instance using a user-friendly interface instead of the command-line one.",
+			"platform": "linux",
+			"repository": {
+			  "stackfile": "lsio/stack/bunkerweb.yml",
+			  "url": "https://github.com/haomingz/portainer-templates"
+			},
+			"title": "BunkerWeb",
+			"type": 3
 		}
 	]
 }
