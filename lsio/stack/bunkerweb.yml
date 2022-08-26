@@ -62,7 +62,7 @@ networks:
       config:
         - subnet: 10.20.30.0/24
   bw-docker:
-      ipam:
+    ipam:
       driver: default
       config:
         - subnet: 10.20.31.0/24
