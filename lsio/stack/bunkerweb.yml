@@ -52,7 +52,7 @@ services:
 
 networks:
   bw-services:
-      ipam:
+    ipam:
       driver: default
       config:
         - subnet: 10.20.29.0/24
