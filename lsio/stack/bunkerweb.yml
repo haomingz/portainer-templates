@@ -4,19 +4,20 @@ version: '3'
 services:
 
   mybunker:
-    image: bunkerity/bunkerweb:1.4.2
-    networks:
-      - bw-services
-      - bw-ui
+    image: bunkerity/bunkerweb:1.4.3
     ports:
       - ${HTTP_PORT}:8080
       - ${HTTPS_PORT}:8443
     volumes:
-      - bw-data:/data
-      - bw-confs:/etc/nginx
+      - bw_data:/data
+      - bw_config:/etc/nginx
     environment:
       - SERVER_NAME=${UI_DOMAIN}
       - MULTISITE=yes
+      - AUTO_LETS_ENCRYPT=yes
+      - DISABLE_DEFAULT_SERVER=yes
+      - USE_CLIENT_CACHE=yes
+      - USE_GZIP=yes
       - API_WHITELIST_IP=127.0.0.0/8 10.20.30.0/24
       - ${UI_DOMAIN}_USE_UI=yes
       - ${UI_DOMAIN}_USE_REVERSE_PROXY=yes
@@ -26,41 +27,44 @@ services:
       - ${UI_DOMAIN}_REVERSE_PROXY_INTERCEPT_ERRORS=no
     labels:
       - "bunkerweb.UI"
+    networks:
+      - net_ui
+      - net_svc
 
   myui:
-    image: bunkerity/bunkerweb-ui:1.4.2
+    image: bunkerity/bunkerweb-ui:1.4.3
     depends_on:
-      - mydocker
-    networks:
-      - bw-ui
-      - bw-docker
+      - myuiproxy
     volumes:
-      - bw-data:/data
-      - bw-confs:/etc/nginx
+      - bw_data:/data
+      - bw_config:/etc/nginx
     environment:
-      - DOCKER_HOST=tcp://mydocker:2375
+      - ABSOLUTE_URI=http(s)://${UI_DOMAIN}/admin/
+      - DOCKER_HOST=tcp://myuiproxy:2375
       - ADMIN_USERNAME=${ADMIN_USERNAME}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
-      - ABSOLUTE_URI=http(s)://${UI_DOMAIN}/admin/
+    networks:
+      - net_ui
+      - net_docker
 
   mydocker:
-    image: tecnativa/docker-socket-proxy:nightly
-    networks:
-      - bw-docker
-    environment:
-      - CONTAINERS=1
+    image: tecnativa/docker-socket-proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - CONTAINERS=1
+    networks:
+      - net_docker
+
+volumes:
+  bw_data:
+  bw_config:
 
 networks:
-  bw-services:
-  bw-ui:
+  net_ui:
     ipam:
       driver: default
       config:
         - subnet: 10.20.30.0/24
-  bw-docker:
-
-volumes:
-  bw-data:
-  bw-confs:
+  net_docker:
+  net_svc:
