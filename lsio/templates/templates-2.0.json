@@ -7844,6 +7844,42 @@
 			},
 			"title": "BunkerWeb",
 			"type": 3
+		},
+		{
+			"type": 1,
+			"title": "Cloudflare DDNS",
+			"name": "cloudflare-ddns",
+			"note": "<p>First copy the example configuration file into the real one.</p><p>Edit config.json and replace the values with your own.</p>",
+			"description": "🎉🌩️ Dynamic DNS (DDNS) service based on Cloudflare! Access your home network remotely via a custom domain name without a static IP!",
+			"categories": [
+				"DNS", 
+				"Tools"
+			],
+			"platform": "linux",
+			"logo": "https://raw.githubusercontent.com/timothymiller/cloudflare-ddns/master/feature-graphic.jpg",
+			"image": "timothyjmiller/cloudflare-ddns:latest",
+			"network": "host",
+			"env": [
+				{
+					"name": "PUID",
+					"label": "PUID",
+					"default": "1024",
+					"description": "for UserID"
+				},
+				{
+					"name": "PGID",
+					"label": "PGID",
+					"default": "100",
+					"description": "for GroupID"
+				}
+			],
+			"volumes": [
+				{
+				  "bind": "/volume1/docker/cloudflare-ddns/config.json",
+				  "container": "/config.json"
+				}
+			],
+			"restart_policy": "unless-stopped"
 		}
 	]
 }
