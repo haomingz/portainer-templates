@@ -14,10 +14,10 @@ services:
     environment:
       - SERVER_NAME=${UI_DOMAIN}
       - MULTISITE=yes
-      - AUTO_LETS_ENCRYPT=yes
-      - DISABLE_DEFAULT_SERVER=yes
-      - USE_CLIENT_CACHE=yes
-      - USE_GZIP=yes
+      #- AUTO_LETS_ENCRYPT=yes
+      #- DISABLE_DEFAULT_SERVER=yes
+      #- USE_CLIENT_CACHE=yes
+      #- USE_GZIP=yes
       - API_WHITELIST_IP=127.0.0.0/8 10.20.30.0/24
       - ${UI_DOMAIN}_USE_UI=yes
       - ${UI_DOMAIN}_USE_REVERSE_PROXY=yes
