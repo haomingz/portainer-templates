@@ -6513,6 +6513,12 @@
 					"label": "PGID",
 					"default": "100",
 					"description": "for GroupID"
+				},
+				{
+					"name": "TZ",
+					"label": "TZ",
+					"default": "Europe/Amsterdam",
+					"description": "Specify a timezone to use for example Europe/Amsterdam"
 				}
 			],
 			"ports": [
@@ -7250,7 +7256,7 @@
 				{
 					"name": "RUN_OPTS",
 					"label": "RUN_OPTS",
-					"default": "<run options here>",
+					"default": "",
 					"description": "Optionally specify additional arguments to be passed. See Additional runtime parameters."
 				}
 			],
