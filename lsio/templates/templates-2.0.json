@@ -7600,6 +7600,36 @@
 				}
 			],
 			"restart_policy": "unless-stopped"
+		},
+		{
+			"type": 1,
+			"title": "telly",
+			"name": "telly",
+			"note": "<p></p><p></p>",
+			"description": "Telly is an IPTV proxy for use with Plex Media Server.",
+			"categories": [
+				"Media", 
+				"Tools"
+			],
+			"platform": "linux",
+			"logo": "https://avatars.githubusercontent.com/u/42452507?s=200&v=4",
+			"image": "tellytv/telly:dev-ffmpeg",
+			"network": "host",
+			"env": [
+				{
+					"name": "TZ",
+					"label": "TZ",
+					"default": "Asia/Shanghai",
+					"description": "Specify a timezone to use for example Asia/Shanghai"
+				}
+			],
+			"volumes": [
+				{
+				  "bind": "/volume1/docker/telly/telly.config.toml",
+				  "container": "/etc/telly/telly.config.toml"
+				}
+			],
+			"restart_policy": "unless-stopped"
 		}
 	]
 }
