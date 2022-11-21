@@ -7623,6 +7623,9 @@
 					"description": "Specify a timezone to use for example Asia/Shanghai"
 				}
 			],
+			"ports": [
+				"6077:6077/tcp"
+			],
 			"volumes": [
 				{
 				  "bind": "/volume1/docker/telly/telly.config.toml",
