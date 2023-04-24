@@ -25,7 +25,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "CONFIGFILE",
@@ -71,18 +71,18 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "CONTEXT_PATH",
                 "label": "CONTEXT_PATH",
-                "default": "<URL_BASE>",
+                "default": "",
                 "description": "For setting url-base in reverse proxy setups."
             },
             {
                 "name": "JAVA_OPTS",
                 "label": "JAVA_OPTS",
-                "default": "<options>",
+                "default": "",
                 "description": "For passing additional java options."
             }
         ],
@@ -142,7 +142,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -182,11 +182,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -222,7 +223,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "CSRF_TRUSTED_ORIGINS",
@@ -271,7 +272,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -322,7 +323,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -370,23 +371,18 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SUBFOLDER",
                 "label": "SUBFOLDER",
                 "default": "/",
                 "description": "Specify a subfolder to use with reverse proxies, IE `/subfolder/`"
-            },
-            {
-                "name": "KEYBOARD",
-                "label": "KEYBOARD",
-                "default": "en-us-qwerty",
-                "description": "See the keyboard layouts section for more information and options."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -425,7 +421,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "PASSWORD",
@@ -435,7 +431,8 @@
             }
         ],
         "ports": [
-            "8080:8080/tcp"
+            "8080:8080/tcp",
+            "8181:8181/tcp"
         ],
         "volumes": [
             {
@@ -474,7 +471,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "CONTEXT_PATH",
@@ -532,6 +529,12 @@
                 "description": "for GroupID"
             },
             {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
                 "name": "APP_URL",
                 "label": "APP_URL",
                 "default": "",
@@ -544,6 +547,12 @@
                 "description": "for specifying the database host"
             },
             {
+                "name": "DB_PORT",
+                "label": "DB_PORT",
+                "default": "<yourdbport>",
+                "description": "for specifying the database port if not default 3306"
+            },
+            {
                 "name": "DB_USER",
                 "label": "DB_USER",
                 "default": "<yourdbuser>",
@@ -553,13 +562,13 @@
                 "name": "DB_PASS",
                 "label": "DB_PASS",
                 "default": "<yourdbpass>",
-                "description": "for specifying the database password"
+                "description": "for specifying the database password (non-alphanumeric passwords must be properly escaped.)"
             },
             {
                 "name": "DB_DATABASE",
                 "label": "DB_DATABASE",
                 "default": "bookstackapp",
-                "description": "for specifying the database to be used (non-alphanumeric passwords must be properly escaped.)"
+                "description": "for specifying the database to be used"
             }
         ],
         "ports": [
@@ -599,7 +608,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -619,7 +628,7 @@
         "title": "Calibre",
         "name": "Calibre",
         "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/calibre/config</p>",
-        "description": "[Calibre](https://calibre-ebook.com/) is a powerful and easy to use e-book manager. Users say it\u2019s outstanding and a must-have. It\u2019ll allow you to do nearly everything and it takes things a step beyond normal e-book software. It\u2019s also completely free and open source and great for both casual users and computer experts.",
+        "description": "[Calibre](https://calibre-ebook.com/) is a powerful and easy to use e-book manager. Users say it's outstanding and a must-have. It'll allow you to do nearly everything and it takes things a step beyond normal e-book software. It's also completely free and open source and great for both casual users and computer experts.",
         "categories": [
             "Media"
         ],
@@ -643,7 +652,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "PASSWORD",
@@ -660,6 +669,7 @@
         ],
         "ports": [
             "8080:8080/tcp",
+            "8181:8181/tcp",
             "8081:8081/tcp"
         ],
         "volumes": [
@@ -699,7 +709,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "DOCKER_MODS",
@@ -755,7 +765,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "BASE_URL",
@@ -771,6 +781,93 @@
             {
                 "container": "/config",
                 "bind": "/volume1/docker/changedetection.io/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Chromium",
+        "name": "Chromium",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/chromium/config</p>",
+        "description": "[Chromium](https://www.chromium.org/chromium-projects/) is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chromium-logo.png",
+        "image": "linuxserver/chromium:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
+                "name": "CHROME_CLI",
+                "label": "CHROME_CLI",
+                "default": "https://www.linuxserver.io/",
+                "description": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full."
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp",
+            "3001:3001/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/chromium/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Ci",
+        "name": "Ci",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/ci/config</p>",
+        "description": "This container needs special attention. Please check https://hub.docker.com/r/linuxserver/ci for details.",
+        "platform": "linux",
+        "logo": "",
+        "image": "linuxserver/ci:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "80:80/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/ci/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -804,7 +901,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "PASSWORD",
@@ -883,7 +980,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -931,7 +1028,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "volumes": [
@@ -975,11 +1072,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -1018,7 +1116,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -1065,7 +1163,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "volumes": [
@@ -1105,7 +1203,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "DELUGE_LOGLEVEL",
@@ -1143,7 +1241,6 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/digikam.png",
         "image": "linuxserver/digikam:latest",
-        "network": "host",
         "env": [
             {
                 "name": "PUID",
@@ -1161,23 +1258,18 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SUBFOLDER",
                 "label": "SUBFOLDER",
                 "default": "/",
                 "description": "Specify a subfolder to use with reverse proxies, IE `/subfolder/`"
-            },
-            {
-                "name": "KEYBOARD",
-                "label": "KEYBOARD",
-                "default": "en-us-qwerty",
-                "description": "See the keyboard layouts section for more information and options."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -1216,7 +1308,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -1259,7 +1351,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "ES_HOST",
@@ -1303,46 +1395,6 @@
     },
     {
         "type": 1,
-        "title": "Docker-compose",
-        "name": "Docker-compose",
-        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/docker-compose/config</p>",
-        "description": "This container needs special attention. Please check https://hub.docker.com/r/linuxserver/docker-compose for details.",
-        "platform": "linux",
-        "logo": "",
-        "image": "linuxserver/docker-compose:latest",
-        "env": [
-            {
-                "name": "PUID",
-                "label": "PUID",
-                "default": "1024",
-                "description": "for UserID"
-            },
-            {
-                "name": "PGID",
-                "label": "PGID",
-                "default": "100",
-                "description": "for GroupID"
-            },
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
-            }
-        ],
-        "ports": [
-            "80:80/tcp"
-        ],
-        "volumes": [
-            {
-                "container": "/config",
-                "bind": "/volume1/docker/docker-compose/config"
-            }
-        ],
-        "restart_policy": "unless-stopped"
-    },
-    {
-        "type": 1,
         "title": "Dokuwiki",
         "name": "Dokuwiki",
         "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/dokuwiki/config</p>",
@@ -1370,7 +1422,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -1414,7 +1466,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "WEBROOT",
@@ -1468,7 +1520,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "DISCORD__TOKEN",
@@ -1616,11 +1668,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -1660,7 +1713,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SUBDOMAINS",
@@ -1715,7 +1768,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "CLI_ARGS",
@@ -1772,7 +1825,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -1825,7 +1878,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -1865,7 +1918,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SUBFOLDER",
@@ -1917,7 +1970,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "MSDELAY",
@@ -1988,7 +2041,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2100,7 +2153,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "FEED_LIMIT",
@@ -2143,7 +2196,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2183,11 +2236,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -2223,11 +2277,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -2258,6 +2313,12 @@
                 "label": "PGID",
                 "default": "100",
                 "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "fleet_admin_authentication_type",
@@ -2327,7 +2388,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2368,7 +2429,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2378,6 +2439,88 @@
             {
                 "container": "/config",
                 "bind": "/volume1/docker/freshrss/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Github-desktop",
+        "name": "Github-desktop",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/github-desktop/config</p>",
+        "description": "[Github Desktop](https://desktop.github.com/) is an open source Electron-based GitHub app. It is written in TypeScript and uses React.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+        "image": "linuxserver/github-desktop:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp",
+            "3001:3001/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/github-desktop/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Gitqlient",
+        "name": "Gitqlient",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/gitqlient/config</p>",
+        "description": "[GitQlient](https://github.com/francescmm/GitQlient) is a multi-platform Git client originally forked from QGit. Nowadays it goes beyond of just a fork and adds a lot of new functionality.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png",
+        "image": "linuxserver/gitqlient:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp",
+            "3001:3001/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/gitqlient/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -2411,7 +2554,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2451,7 +2594,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2462,20 +2605,6 @@
                 "container": "/config",
                 "bind": "/volume1/docker/grocy/config"
             }
-        ],
-        "restart_policy": "unless-stopped"
-    },
-    {
-        "type": 1,
-        "title": "Guacd",
-        "name": "Guacd",
-        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p>",
-        "description": "[Guacd](https://guacamole.apache.org/) - Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH. This container is only the backend server component needed to use The official or 3rd party HTML5 frontends.",
-        "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/guacd.png",
-        "image": "linuxserver/guacd:latest",
-        "ports": [
-            "4822:4822/tcp"
         ],
         "restart_policy": "unless-stopped"
     },
@@ -2502,16 +2631,16 @@
                 "description": "for GroupID"
             },
             {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
                 "name": "SEC_KEY",
                 "label": "SEC_KEY",
                 "default": "<Your Key To Encrypt Security Data>",
                 "description": "Key used to secure communication."
-            },
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
             }
         ],
         "ports": [
@@ -2552,7 +2681,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2595,6 +2724,12 @@
                 "label": "PGID",
                 "default": "100",
                 "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SITE_ROOT",
@@ -2660,25 +2795,13 @@
                 "name": "REGENERATE_SETTINGS",
                 "label": "REGENERATE_SETTINGS",
                 "default": "",
-                "description": "Defaults to False. Set to true to always override the `local_settings.py` file with values from environment variables. Do not set to True if you have made manual modifications to this file."
-            },
-            {
-                "name": "SITE_LOGO_URL",
-                "label": "SITE_LOGO_URL",
-                "default": "",
-                "description": "Full URL to custom site logo"
+                "description": "Defaults to False. Set to True to always override the `local_settings.py` file with values from environment variables. Do not set to True if you have made manual modifications to this file."
             },
             {
                 "name": "ALLOWED_HOSTS",
                 "label": "ALLOWED_HOSTS",
                 "default": "",
                 "description": "Array of valid hostnames for the server `['test.com','test2.com']` (default: `['*']`)"
-            },
-            {
-                "name": "SECRET_KEY",
-                "label": "SECRET_KEY",
-                "default": "",
-                "description": "A secret key used for cryptographic signing. Will generate a secure value if one is not supplied"
             },
             {
                 "name": "APPRISE_ENABLED",
@@ -2691,10 +2814,35 @@
                 "label": "DEBUG",
                 "default": "",
                 "description": "Defaults to True. Debug mode relaxes CSRF protections and increases logging verbosity but should be disabled for production instances as it will impact performance and security."
+            },
+            {
+                "name": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+                "label": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+                "default": "",
+                "description": "Defaults to False. Set to True to allow integrations to connect to private IP addresses."
+            },
+            {
+                "name": "PING_EMAIL_DOMAIN",
+                "label": "PING_EMAIL_DOMAIN",
+                "default": "",
+                "description": "The domain to use for generating ping email addresses."
+            },
+            {
+                "name": "SECRET_KEY",
+                "label": "SECRET_KEY",
+                "default": "",
+                "description": "A secret key used for cryptographic signing. Will generate a secure value if one is not supplied"
+            },
+            {
+                "name": "SITE_LOGO_URL",
+                "label": "SITE_LOGO_URL",
+                "default": "",
+                "description": "Full URL to custom site logo"
             }
         ],
         "ports": [
-            "8000:8000/tcp"
+            "8000:8000/tcp",
+            "2525:2525/tcp"
         ],
         "volumes": [
             {
@@ -2730,6 +2878,12 @@
                 "description": "for GroupID"
             },
             {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
                 "name": "DB_HOST",
                 "label": "DB_HOST",
                 "default": "<hostname or ip>",
@@ -2758,12 +2912,6 @@
                 "label": "DB_NAME",
                 "default": "hedgedoc",
                 "description": "Database name"
-            },
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
             },
             {
                 "name": "CMD_DOMAIN",
@@ -2833,7 +2981,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2878,7 +3026,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2918,7 +3066,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -2928,53 +3076,6 @@
             {
                 "container": "/config",
                 "bind": "/volume1/docker/htpcmanager/config"
-            }
-        ],
-        "restart_policy": "unless-stopped"
-    },
-    {
-        "type": 1,
-        "title": "Ipfs",
-        "name": "Ipfs",
-        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/ipfs/config</p>",
-        "description": "[Ipfs](https://ipfs.io/) - A peer-to-peer hypermedia protocol designed to make the web faster, safer, and more open.",
-        "categories": [
-            "P2P"
-        ],
-        "platform": "linux",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Ipfs-logo-1024-ice-text.png/480px-Ipfs-logo-1024-ice-text.png",
-        "image": "linuxserver/ipfs:latest",
-        "env": [
-            {
-                "name": "PUID",
-                "label": "PUID",
-                "default": "1024",
-                "description": "for UserID"
-            },
-            {
-                "name": "PGID",
-                "label": "PGID",
-                "default": "100",
-                "description": "for GroupID"
-            },
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
-            }
-        ],
-        "ports": [
-            "80:80/tcp",
-            "4001:4001/tcp",
-            "5001:5001/tcp",
-            "8080:8080/tcp",
-            "443:443/tcp"
-        ],
-        "volumes": [
-            {
-                "container": "/config",
-                "bind": "/volume1/docker/ipfs/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -3005,7 +3106,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "AUTO_UPDATE",
@@ -3016,7 +3117,7 @@
             {
                 "name": "RUN_OPTS",
                 "label": "RUN_OPTS",
-                "default": "<run options here>",
+                "default": "",
                 "description": "Optionally specify additional arguments to be passed."
             }
         ],
@@ -3061,7 +3162,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "JELLYFIN_PublishedServerUrl",
@@ -3118,7 +3219,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -3136,7 +3237,7 @@
         "type": 1,
         "title": "Kasm",
         "name": "Kasm",
-        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/kasm/opt<br>mkdir -p /volume1/docker/kasm/profiles</p>",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/kasm/opt<br>mkdir -p /volume1/docker/kasm/profiles<br><br></p>",
         "description": "[Kasm](https://www.kasmweb.com/?utm_campaign=LinuxServer&utm_source=listing) Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections. The rendering of the graphical-based containers is powered by the open-source project [KasmVNC](https://www.kasmweb.com/kasmvnc.html?utm_campaign=LinuxServer&utm_source=kasmvnc).",
         "platform": "linux",
         "logo": "https://kasm-ci.s3.amazonaws.com/kasm_wide.png",
@@ -3148,12 +3249,6 @@
                 "label": "KASM_PORT",
                 "default": "443",
                 "description": "Specify the port you bind to the outside for Kasm Workspaces."
-            },
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
             },
             {
                 "name": "DOCKER_HUB_USERNAME",
@@ -3180,6 +3275,14 @@
             {
                 "container": "/profiles",
                 "bind": "/volume1/docker/kasm/profiles"
+            },
+            {
+                "container": "/dev/input",
+                "bind": "/dev/input"
+            },
+            {
+                "container": "/run/udev/data",
+                "bind": "/run/udev/data"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -3210,23 +3313,18 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SUBFOLDER",
                 "label": "SUBFOLDER",
                 "default": "/",
                 "description": "Specify a subfolder to use with reverse proxies, IE `/subfolder/`"
-            },
-            {
-                "name": "KEYBOARD",
-                "label": "KEYBOARD",
-                "default": "en-us-qwerty",
-                "description": "See the keyboard layouts section for more information and options."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -3262,7 +3360,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "DOCKER_MODS",
@@ -3297,32 +3395,26 @@
         "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p>",
         "description": "[Ldap-auth](https://github.com/nginxinc/nginx-ldap-auth) software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user\u2019s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
         "platform": "linux",
-        "logo": "https://jumpcloud.com/wp-content/uploads/2016/12/LDAP_Logo-1420591101.jpg",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ldap-auth-logo.png",
         "image": "linuxserver/ldap-auth:latest",
         "env": [
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
-            },
             {
                 "name": "FERNETKEY",
                 "label": "FERNETKEY",
                 "default": "",
-                "description": "Optionally define a custom fernet key, has to be base64-encoded 32-byte (only needed if container is frequently recreated, or if using multi-node setups, invalidating previous authentications)"
+                "description": "Optionally define a custom valid fernet key (only needed if container is frequently recreated, or if using multi-node setups, invalidating previous authentications)"
             },
             {
                 "name": "CERTFILE",
                 "label": "CERTFILE",
                 "default": "",
-                "description": "Point this to a certificate file to enable HTTP over SSL (HTTPS) for the ldap auth daemon"
+                "description": "Optionally point this to a certificate file to enable HTTP over SSL (HTTPS) for the ldap auth daemon"
             },
             {
                 "name": "KEYFILE",
                 "label": "KEYFILE",
                 "default": "",
-                "description": "Point this to the private key file, matching the certificate file referred to in CERTFILE"
+                "description": "Optionally point this to the private key file, matching the certificate file referred to in CERTFILE"
             }
         ],
         "ports": [
@@ -3360,11 +3452,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -3400,7 +3493,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "PASSWORD",
@@ -3488,7 +3581,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -3536,7 +3629,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -3546,6 +3639,47 @@
             {
                 "container": "/config",
                 "bind": "/volume1/docker/limnoria/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Lollypop",
+        "name": "Lollypop",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/lollypop/config</p>",
+        "description": "[Lollypop](https://wiki.gnome.org/Apps/Lollypop) is a lightweight modern music player designed to work excellently on the GNOME desktop environment.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lollypop-icon.png",
+        "image": "linuxserver/lollypop:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp",
+            "3001:3001/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/lollypop/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -3576,13 +3710,19 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "DB_HOST",
                 "label": "DB_HOST",
                 "default": "mariadb",
                 "description": "for specifying the database host"
+            },
+            {
+                "name": "DB_PORT",
+                "label": "DB_PORT",
+                "default": "3306",
+                "description": "for specifying the database port"
             },
             {
                 "name": "DB_USERNAME",
@@ -3641,16 +3781,16 @@
                 "description": "for GroupID"
             },
             {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
                 "name": "MYSQL_ROOT_PASSWORD",
                 "label": "MYSQL_ROOT_PASSWORD",
                 "default": "ROOT_ACCESS_PASSWORD",
                 "description": "Set this to root password for installation (minimum 4 characters & non-alphanumeric passwords must be properly escaped)."
-            },
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
             },
             {
                 "name": "MYSQL_DATABASE",
@@ -3717,7 +3857,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "LOCAL_DOMAIN",
@@ -3837,7 +3977,7 @@
                 "name": "WEB_DOMAIN",
                 "label": "WEB_DOMAIN",
                 "default": "mastodon.example.com",
-                "description": "This can be set if you want your server identifier to be different to the subdomain hosting Mastodon. See https://docs.joinmastodon.org/admin/config/#basic"
+                "description": "This can be set if you want your server identifier to be different to the subdomain hosting Mastodon. See [https://docs.joinmastodon.org/admin/config/#basic](https://docs.joinmastodon.org/admin/config/#basic)"
             },
             {
                 "name": "ES_HOST",
@@ -3886,6 +4026,36 @@
                 "label": "S3_ALIAS_HOST",
                 "default": "",
                 "description": "Alternate hostname for object fetching if you are front the S3 connections."
+            },
+            {
+                "name": "SIDEKIQ_ONLY",
+                "label": "SIDEKIQ_ONLY",
+                "default": "false",
+                "description": "Only run the sidekiq service in this container instance. For large scale instances that need better queue handling."
+            },
+            {
+                "name": "SIDEKIQ_QUEUE",
+                "label": "SIDEKIQ_QUEUE",
+                "default": "",
+                "description": "The name of the sidekiq queue to run in this container. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-queues)."
+            },
+            {
+                "name": "SIDEKIQ_DEFAULT",
+                "label": "SIDEKIQ_DEFAULT",
+                "default": "false",
+                "description": "Set to `true` on the main container if you're running additional sidekiq instances. It will run the `default` queue."
+            },
+            {
+                "name": "SIDEKIQ_THREADS",
+                "label": "SIDEKIQ_THREADS",
+                "default": "5",
+                "description": "The number of threads for sidekiq to use. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads)."
+            },
+            {
+                "name": "DB_POOL",
+                "label": "DB_POOL",
+                "default": "5",
+                "description": "The size of the DB connection pool, must be *at least* the same as `SIDEKIQ_THREADS`. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads)."
             }
         ],
         "ports": [
@@ -3926,7 +4096,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -3974,12 +4144,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "CLI_ARGS",
                 "label": "CLI_ARGS",
-                "default": "'--gameid minetest --port 30000'",
+                "default": "--gameid minetest --port 30000",
                 "description": "Optionally specify any [CLI variables](https://wiki.minetest.net/Command_line) you want to launch the app with"
             }
         ],
@@ -4020,12 +4190,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "RUN_OPTS",
                 "label": "RUN_OPTS",
-                "default": "<parameter>",
+                "default": "",
                 "description": "Specify specific run params for minisatip"
             }
         ],
@@ -4068,7 +4238,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -4082,6 +4252,53 @@
             {
                 "container": "/music",
                 "bind": "/volume1/docker/mstream/music"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Mullvad-browser",
+        "name": "Mullvad-browser",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/mullvad-browser/config</p>",
+        "description": "The [Mullvad Browser](https://mullvad.net/en/browser) is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project. It\u2019s designed to minimize tracking and fingerprinting. You could say it\u2019s a Tor Browser to use without the Tor Network. Instead, you can use it with a trustworthy VPN.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mullvad-browser-logo.png",
+        "image": "linuxserver/mullvad-browser:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
+                "name": "LOCAL_NET",
+                "label": "LOCAL_NET",
+                "default": "192.168.0.0/16",
+                "description": "If using a VPN, set this to your local LAN IP range using CIDR notation. Without it you will be unable to access the web interface. If you have multiple ranges or a complex LAN setup you will need to manage this yourself in the wg0.conf, see the App Setup section for details."
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp",
+            "3001:3001/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/mullvad-browser/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -4107,6 +4324,12 @@
                 "label": "PGID",
                 "default": "100",
                 "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -4154,11 +4377,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -4194,7 +4418,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "PEER_HOST",
@@ -4289,6 +4513,12 @@
                 "description": "for GroupID"
             },
             {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
                 "name": "MENU_VERSION",
                 "label": "MENU_VERSION",
                 "default": "1.9.9",
@@ -4350,126 +4580,126 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SUPERUSER_EMAIL",
                 "label": "SUPERUSER_EMAIL",
-                "default": "<SUPERUSER_EMAIL>",
+                "default": "",
                 "description": "Email address for `admin` account"
             },
             {
                 "name": "SUPERUSER_PASSWORD",
                 "label": "SUPERUSER_PASSWORD",
-                "default": "<SUPERUSER_PASSWORD>",
+                "default": "",
                 "description": "Password for `admin` account"
             },
             {
                 "name": "ALLOWED_HOST",
                 "label": "ALLOWED_HOST",
-                "default": "<ALLOWED_HOST>",
+                "default": "",
                 "description": "The hostname you will use to access the app (i.e., netbox.example.com)"
             },
             {
                 "name": "DB_NAME",
                 "label": "DB_NAME",
-                "default": "<DB_NAME>",
+                "default": "",
                 "description": "Database name (default: netbox)"
             },
             {
                 "name": "DB_USER",
                 "label": "DB_USER",
-                "default": "<DB_USER>",
+                "default": "",
                 "description": "Database user"
             },
             {
                 "name": "DB_PASSWORD",
                 "label": "DB_PASSWORD",
-                "default": "<DB_PASSWORD>",
+                "default": "",
                 "description": "Database password"
             },
             {
                 "name": "DB_HOST",
                 "label": "DB_HOST",
-                "default": "<DB_HOST>",
+                "default": "",
                 "description": "Database host (default: postgres)"
             },
             {
                 "name": "DB_PORT",
                 "label": "DB_PORT",
-                "default": "<DB_PORT>",
+                "default": "",
                 "description": "Database port (defaul: 5432)"
             },
             {
                 "name": "REDIS_HOST",
                 "label": "REDIS_HOST",
-                "default": "<REDIS_HOST>",
+                "default": "",
                 "description": "Redis host (default: redis)"
             },
             {
                 "name": "REDIS_PORT",
                 "label": "REDIS_PORT",
-                "default": "<REDIS_PORT>",
+                "default": "",
                 "description": "Redis port number (default: 6379)"
             },
             {
                 "name": "REDIS_PASSWORD",
                 "label": "REDIS_PASSWORD",
-                "default": "<REDIS_PASSWORD>",
+                "default": "",
                 "description": "Redis password (default: none)"
             },
             {
                 "name": "REDIS_DB_TASK",
                 "label": "REDIS_DB_TASK",
-                "default": "<REDIS_DB_TASK>",
+                "default": "",
                 "description": "Redis database ID for tasks (default: 0)"
             },
             {
                 "name": "REDIS_DB_CACHE",
                 "label": "REDIS_DB_CACHE",
-                "default": "<REDIS_DB_CACHE>",
+                "default": "",
                 "description": "Redis database ID for caching (default: 1)"
             },
             {
                 "name": "BASE_PATH",
                 "label": "BASE_PATH",
-                "default": "<BASE_PATH>",
+                "default": "",
                 "description": "The path you will use to access the app (i.e., /netbox, optional, default: none)"
             },
             {
                 "name": "REMOTE_AUTH_ENABLED",
                 "label": "REMOTE_AUTH_ENABLED",
-                "default": "<REMOTE_AUTH_ENABLED>",
+                "default": "",
                 "description": "Enable remote authentication (optional, default: False)"
             },
             {
                 "name": "REMOTE_AUTH_BACKEND",
                 "label": "REMOTE_AUTH_BACKEND",
-                "default": "<REMOTE_AUTH_BACKEND>",
+                "default": "",
                 "description": "Python path to the custom Django authentication backend to use for external user authentication (optional, default: netbox.authentication.RemoteUserBackend)"
             },
             {
                 "name": "REMOTE_AUTH_HEADER",
                 "label": "REMOTE_AUTH_HEADER",
-                "default": "<REMOTE_AUTH_HEADER>",
+                "default": "",
                 "description": "Name of the HTTP header which informs NetBox of the currently authenticated user. (optional, default: HTTP_REMOTE_USER)"
             },
             {
                 "name": "REMOTE_AUTH_AUTO_CREATE_USER",
                 "label": "REMOTE_AUTH_AUTO_CREATE_USER",
-                "default": "<REMOTE_AUTH_AUTO_CREATE_USER>",
+                "default": "",
                 "description": "If true, NetBox will automatically create local accounts for users authenticated via a remote service (optional, default: False)"
             },
             {
                 "name": "REMOTE_AUTH_DEFAULT_GROUPS",
                 "label": "REMOTE_AUTH_DEFAULT_GROUPS",
-                "default": "<REMOTE_AUTH_DEFAULT_GROUPS>",
+                "default": "",
                 "description": "The list of groups to assign a new user account when created using remote authentication (optional, default: [])"
             },
             {
                 "name": "REMOTE_AUTH_DEFAULT_PERMISSIONS",
                 "label": "REMOTE_AUTH_DEFAULT_PERMISSIONS",
-                "default": "<REMOTE_AUTH_DEFAULT_PERMISSIONS>",
+                "default": "",
                 "description": "A mapping of permissions to assign a new user account when created using remote authentication (optional, default: {})"
             }
         ],
@@ -4510,7 +4740,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -4554,7 +4784,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -4595,7 +4825,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -4632,6 +4862,12 @@
                 "description": "for GroupID"
             },
             {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
                 "name": "PUID",
                 "label": "PUID",
                 "default": "<yourUID>",
@@ -4642,12 +4878,6 @@
                 "label": "PGID",
                 "default": "<yourGID>",
                 "description": "specify your GID"
-            },
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
             }
         ],
         "ports": [
@@ -4657,62 +4887,6 @@
             {
                 "container": "/config",
                 "bind": "/volume1/docker/nntp2nntp/config"
-            }
-        ],
-        "restart_policy": "unless-stopped"
-    },
-    {
-        "type": 1,
-        "title": "Nzbget",
-        "name": "Nzbget",
-        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/nzbget/config<br>mkdir -p /volume1/docker/nzbget/downloads</p>",
-        "description": "[Nzbget](http://nzbget.net/) is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.",
-        "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nzbget-banner.png",
-        "image": "linuxserver/nzbget:latest",
-        "env": [
-            {
-                "name": "PUID",
-                "label": "PUID",
-                "default": "1024",
-                "description": "for UserID"
-            },
-            {
-                "name": "PGID",
-                "label": "PGID",
-                "default": "100",
-                "description": "for GroupID"
-            },
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
-            },
-            {
-                "name": "NZBGET_USER",
-                "label": "NZBGET_USER",
-                "default": "nzbget",
-                "description": "Specify the user for web authentication."
-            },
-            {
-                "name": "NZBGET_PASS",
-                "label": "NZBGET_PASS",
-                "default": "tegbzn6789",
-                "description": "Specify the password for web authentication."
-            }
-        ],
-        "ports": [
-            "6789:6789/tcp"
-        ],
-        "volumes": [
-            {
-                "container": "/config",
-                "bind": "/volume1/docker/nzbget/config"
-            },
-            {
-                "container": "/downloads",
-                "bind": "/volume1/docker/nzbget/downloads"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -4743,7 +4917,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -4787,7 +4961,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "BASE_URL",
@@ -4833,7 +5007,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "PUBLIC_KEY",
@@ -4927,7 +5101,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "CONNECTION_TOKEN",
@@ -4967,6 +5141,53 @@
     },
     {
         "type": 1,
+        "title": "Opera",
+        "name": "Opera",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/opera/config</p>",
+        "description": "[Opera](https://www.opera.com/) is a multi-platform web browser developed by its namesake company Opera. The browser is based on Chromium, but distinguishes itself from other Chromium-based browsers (Chrome, Edge, etc.) through its user interface and other features.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/opera-icon.png",
+        "image": "linuxserver/opera:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
+                "name": "OPERA_CLI",
+                "label": "OPERA_CLI",
+                "default": "https://www.linuxserver.io/",
+                "description": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full."
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp",
+            "3001:3001/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/opera/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
         "title": "Oscam",
         "name": "Oscam",
         "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/oscam/config</p>",
@@ -4991,7 +5212,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -5034,7 +5255,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -5050,13 +5271,13 @@
     },
     {
         "type": 1,
-        "title": "Papermerge",
-        "name": "Papermerge",
-        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/papermerge/config<br>mkdir -p /volume1/docker/papermerge/data</p>",
-        "description": "[Papermerge](https://www.papermerge.com/) is an open source document management system (DMS) primarily designed for archiving and retrieving your digital documents. Instead of having piles of paper documents all over your desk, office or drawers - you can quickly scan them and configure your scanner to directly upload to Papermerge DMS.'",
+        "title": "Pairdrop",
+        "name": "Pairdrop",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p>",
+        "description": "[PairDrop](https://github.com/schlagmichdoch/PairDrop) is a sublime alternative to AirDrop that works on all platforms. Send images, documents or text via peer to peer connection to devices in the same local network/Wi-Fi or to paired devices.",
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/papermerge-icon.png",
-        "image": "linuxserver/papermerge:latest",
+        "logo": "https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png",
+        "image": "linuxserver/pairdrop:latest",
         "env": [
             {
                 "name": "PUID",
@@ -5074,27 +5295,29 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
-                "name": "REDIS_URL",
-                "label": "REDIS_URL",
+                "name": "RATE_LIMIT",
+                "label": "RATE_LIMIT",
+                "default": "false",
+                "description": "Set to `true` to limit clients to 100 requests per 5 min"
+            },
+            {
+                "name": "WS_FALLBACK",
+                "label": "WS_FALLBACK",
+                "default": "false",
+                "description": "Set to `true` to enable websocket fallback if the peer to peer WebRTC connection is not available to the client (see App Setup notes)."
+            },
+            {
+                "name": "RTC_CONFIG",
+                "label": "RTC_CONFIG",
                 "default": "",
-                "description": "Specify an external redis instance to use. Can optionally include a port (`redis:6379`) and/or db (`redis/foo`). If left blank or not included, will use a built-in redis instance. If changed after initial setup will also require manual modification of /config/settings.py"
+                "description": "Path to a json file containing custom STUN/TURN config (see App Setup notes)"
             }
         ],
         "ports": [
-            "8000:8000/tcp"
-        ],
-        "volumes": [
-            {
-                "container": "/config",
-                "bind": "/volume1/docker/papermerge/config"
-            },
-            {
-                "container": "/data",
-                "bind": "/volume1/docker/papermerge/data"
-            }
+            "3000:3000/tcp"
         ],
         "restart_policy": "unless-stopped"
     },
@@ -5127,7 +5350,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "PMA_ARBITRARY",
@@ -5179,11 +5402,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -5219,7 +5443,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -5259,6 +5483,12 @@
                 "label": "PGID",
                 "default": "100",
                 "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "VERSION",
@@ -5318,7 +5548,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "PMM_CONFIG",
@@ -5385,7 +5615,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "MAX_UPLOAD",
@@ -5405,6 +5635,46 @@
             {
                 "container": "/data",
                 "bind": "/volume1/docker/projectsend/data"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Prowlarr",
+        "name": "Prowlarr",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/prowlarr/config</p>",
+        "description": "[Prowlarr](https://github.com/Prowlarr/Prowlarr) is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr offering complete management of your indexers with no per app Indexer setup required (we do it all).",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png",
+        "image": "linuxserver/prowlarr:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "9696:9696/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/prowlarr/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -5435,7 +5705,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SECRET_PATH",
@@ -5481,7 +5751,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "EXTERNALURL",
@@ -5534,7 +5804,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -5579,7 +5849,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "GITURL",
@@ -5641,7 +5911,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "WEBUI_PORT",
@@ -5693,11 +5963,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -5737,7 +6008,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "RUN_OPTS",
@@ -5779,6 +6050,12 @@
                 "label": "PGID",
                 "default": "100",
                 "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "QUASSEL_CORE",
@@ -5836,7 +6113,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -5884,7 +6161,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -5924,7 +6201,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -5938,6 +6215,46 @@
             {
                 "container": "/config",
                 "bind": "/volume1/docker/rdesktop/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Readme-sync",
+        "name": "Readme-sync",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/readme-sync/config</p>",
+        "description": "This container needs special attention. Please check https://hub.docker.com/r/linuxserver/readme-sync for details.",
+        "platform": "linux",
+        "logo": "",
+        "image": "linuxserver/readme-sync:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "80:80/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/readme-sync/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -5968,11 +6285,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -6011,7 +6329,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6051,7 +6369,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6100,7 +6418,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6148,7 +6466,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6196,7 +6514,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6244,7 +6562,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6292,7 +6610,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6336,7 +6654,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6374,6 +6692,12 @@
                 "description": "for GroupID"
             },
             {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
                 "name": "APP_URL",
                 "label": "APP_URL",
                 "default": "http://localhost:8080",
@@ -6382,38 +6706,32 @@
             {
                 "name": "MYSQL_PORT_3306_TCP_ADDR",
                 "label": "MYSQL_PORT_3306_TCP_ADDR",
-                "default": "<mysql host>",
+                "default": "",
                 "description": "Mysql hostname or IP to use"
             },
             {
                 "name": "MYSQL_PORT_3306_TCP_PORT",
                 "label": "MYSQL_PORT_3306_TCP_PORT",
-                "default": "<mysql port>",
+                "default": "",
                 "description": "Mysql port to use"
             },
             {
                 "name": "MYSQL_DATABASE",
                 "label": "MYSQL_DATABASE",
-                "default": "<mysql database>",
+                "default": "",
                 "description": "Mysql database to use"
             },
             {
                 "name": "MYSQL_USER",
                 "label": "MYSQL_USER",
-                "default": "<mysql pass>",
+                "default": "",
                 "description": "Mysql user to use"
             },
             {
                 "name": "MYSQL_PASSWORD",
                 "label": "MYSQL_PASSWORD",
-                "default": "changeme",
+                "default": "",
                 "description": "Mysql password to use"
-            },
-            {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
             }
         ],
         "ports": [
@@ -6456,7 +6774,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6504,11 +6822,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -6544,7 +6863,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "URL",
@@ -6574,7 +6893,7 @@
                 "name": "DNSPLUGIN",
                 "label": "DNSPLUGIN",
                 "default": "cloudflare",
-                "description": "Required if `VALIDATION` is set to `dns`. Options are `acmedns`, `aliyun`, `azure`, `cloudflare`, `cloudxns`, `cpanel`, `desec`, `digitalocean`, `directadmin`, `dnsimple`, `dnsmadeeasy`, `dnspod`, `do`, `domeneshop`, `duckdns`, `dynu`, `gandi`, `gehirn`, `godaddy`, `google`, `he`, `hetzner`, `infomaniak`, `inwx`, `ionos`, `linode`, `loopia`, `luadns`, `netcup`, `njalla`, `nsone`, `ovh`, `porkbun`, `rfc2136`, `route53`, `sakuracloud`, `standalone`, `transip`, and `vultr`. Also need to enter the credentials into the corresponding ini (or json for some plugins) file under `/config/dns-conf`."
+                "description": "Required if `VALIDATION` is set to `dns`. Options are `acmedns`, `aliyun`, `azure`, `cloudflare`, `cpanel`, `desec`, `digitalocean`, `directadmin`, `dnsimple`, `dnsmadeeasy`, `dnspod`, `do`, `domeneshop`, `duckdns`, `dynu`, `gandi`, `gehirn`, `godaddy`, `google`, `google-domains`, `he`, `hetzner`, `infomaniak`, `inwx`, `ionos`, `linode`, `loopia`, `luadns`, `netcup`, `njalla`, `nsone`, `ovh`, `porkbun`, `rfc2136`, `route53`, `sakuracloud`, `standalone`, `transip`, and `vultr`. Also need to enter the credentials into the corresponding ini (or json for some plugins) file under `/config/dns-conf`."
             },
             {
                 "name": "PROPAGATION",
@@ -6630,12 +6949,6 @@
         "image": "linuxserver/synclounge:latest",
         "env": [
             {
-                "name": "TZ",
-                "label": "TZ",
-                "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
-            },
-            {
                 "name": "AUTH_LIST",
                 "label": "AUTH_LIST",
                 "default": "plexuser1,plexuser2,email1,machineid1",
@@ -6685,7 +6998,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6739,7 +7052,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6785,7 +7098,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6796,6 +7109,28 @@
                 "container": "/config",
                 "bind": "/volume1/docker/tautulli/config"
             }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Tester",
+        "name": "Tester",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p>",
+        "description": "This internal tool is used as a desktop sandbox in our CI process to grab a screenshot of a hopefully functional endpoint",
+        "platform": "linux",
+        "logo": "https://avatars3.githubusercontent.com/u/12324908?s=200&v=4",
+        "image": "linuxserver/tester:latest",
+        "env": [
+            {
+                "name": "URL",
+                "label": "URL",
+                "default": "http://google.com",
+                "description": "Specify an endpoint, the container will automatically determine the correct protocol and program to use"
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp"
         ],
         "restart_policy": "unless-stopped"
     },
@@ -6825,7 +7160,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -6865,42 +7200,42 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "TRANSMISSION_WEB_HOME",
                 "label": "TRANSMISSION_WEB_HOME",
-                "default": "/combustion-release/",
-                "description": "Specify an alternative UI options are [`/combustion-release/`](https://github.com/Secretmapper/combustion), [`/transmission-web-control/`](https://github.com/ronggang/transmission-web-control), [`/kettu/`](https://github.com/endor/kettu), [`/flood-for-transmission/`](https://github.com/johman10/flood-for-transmission), and [`/transmissionic/`](https://github.com/6c65726f79/Transmissionic)."
+                "default": "",
+                "description": "Specify the path to an alternative UI folder."
             },
             {
                 "name": "USER",
                 "label": "USER",
-                "default": "username",
+                "default": "",
                 "description": "Specify an optional username for the interface"
             },
             {
                 "name": "PASS",
                 "label": "PASS",
-                "default": "password",
+                "default": "",
                 "description": "Specify an optional password for the interface"
             },
             {
                 "name": "WHITELIST",
                 "label": "WHITELIST",
-                "default": "iplist",
+                "default": "",
                 "description": "Specify an optional list of comma separated ip whitelist. Fills rpc-whitelist setting."
             },
             {
                 "name": "PEERPORT",
                 "label": "PEERPORT",
-                "default": "peerport",
+                "default": "",
                 "description": "Specify an optional port for torrent TCP/UDP connections. Fills peer-port setting."
             },
             {
                 "name": "HOST_WHITELIST",
                 "label": "HOST_WHITELIST",
-                "default": "dnsname list",
+                "default": "",
                 "description": "Specify an optional list of comma separated dns name whitelist. Fills rpc-host-whitelist setting."
             }
         ],
@@ -6951,7 +7286,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "RUN_OPTS",
@@ -7002,12 +7337,12 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "MAXMEM",
                 "label": "MAXMEM",
-                "default": "<maxmem>",
+                "default": "",
                 "description": "To set the maximum memory. ( ex: set '1024' for 1GB )"
             }
         ],
@@ -7064,19 +7399,19 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "MEM_LIMIT",
                 "label": "MEM_LIMIT",
                 "default": "1024",
-                "description": "Optionally change the Java memory limit. Set to `default` to reset to default"
+                "description": "Optionally change the Java memory limit (in Megabytes). Set to `default` to reset to default"
             },
             {
                 "name": "MEM_STARTUP",
                 "label": "MEM_STARTUP",
                 "default": "1024",
-                "description": "Optionally change the Java initial/minimum memory. Set to `default` to reset to default"
+                "description": "Optionally change the Java initial/minimum memory (in Megabytes). Set to `default` to reset to default"
             }
         ],
         "ports": [
@@ -7094,6 +7429,88 @@
             {
                 "container": "/config",
                 "bind": "/volume1/docker/unifi-controller/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Vscodium",
+        "name": "Vscodium",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/vscodium/config</p>",
+        "description": "[VSCodium](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of Microsoft\u2019s editor VS Code.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png",
+        "image": "linuxserver/vscodium:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp",
+            "3001:3001/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/vscodium/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Webcord",
+        "name": "Webcord",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/webcord/config</p>",
+        "description": "[WebCord](https://github.com/SpacingBat3/WebCord) can be summarized as a pack of security and privacy hardenings, Discord features reimplementations, Electron / Chromium / Discord bugs workarounds, stylesheets, internal pages and wrapped https://discord.com page, designed to conform with ToS as much as it is possible (or hide the changes that might violate it from Discord's eyes).",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webcord-icon.png",
+        "image": "linuxserver/webcord:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp",
+            "3001:3001/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/webcord/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -7124,7 +7541,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "volumes": [
@@ -7168,19 +7585,13 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SUBFOLDER",
                 "label": "SUBFOLDER",
                 "default": "/",
                 "description": "Specify a subfolder to use with reverse proxies, IE `/subfolder/`"
-            },
-            {
-                "name": "KEYBOARD",
-                "label": "KEYBOARD",
-                "default": "en-us-qwerty",
-                "description": "See the keyboard layouts section for more information and options."
             },
             {
                 "name": "TITLE",
@@ -7190,7 +7601,8 @@
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
@@ -7230,7 +7642,43 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
+                "name": "DB_TYPE",
+                "label": "DB_TYPE",
+                "default": "sqlite",
+                "description": "Set to sqlite (default) or postgres depending on the database engine you wish to use"
+            },
+            {
+                "name": "DB_HOST",
+                "label": "DB_HOST",
+                "default": "",
+                "description": "DB hostname (postgres only)"
+            },
+            {
+                "name": "DB_PORT",
+                "label": "DB_PORT",
+                "default": "",
+                "description": "DB port (postgres only)"
+            },
+            {
+                "name": "DB_NAME",
+                "label": "DB_NAME",
+                "default": "",
+                "description": "DB name (postgres only)"
+            },
+            {
+                "name": "DB_USER",
+                "label": "DB_USER",
+                "default": "",
+                "description": "DB username (postgres only)"
+            },
+            {
+                "name": "DB_PASS",
+                "label": "DB_PASS",
+                "default": "",
+                "description": "DB password (postgres only)"
             }
         ],
         "ports": [
@@ -7274,7 +7722,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             },
             {
                 "name": "SERVERURL",
@@ -7311,6 +7759,12 @@
                 "label": "ALLOWEDIPS",
                 "default": "0.0.0.0/0",
                 "description": "The IPs/Ranges that the peers will be able to reach using the VPN connection. If not specified the default value is: '0.0.0.0/0, ::0/0' This will cause ALL traffic to route through the VPN, if you want split tunneling, set this to only the IPs you would like to use the tunnel AND the ip of the server's WG ip, such as 10.13.13.1."
+            },
+            {
+                "name": "PERSISTENTKEEPALIVE_PEERS",
+                "label": "PERSISTENTKEEPALIVE_PEERS",
+                "default": "",
+                "description": "Set to `all` or a list of comma separated peers (ie. `1,4,laptop`) for the wireguard server to send keepalive packets to listed peers every 25 seconds. Useful if server is accessed via domain name and has dynamic IP. Used only in server mode."
             },
             {
                 "name": "LOG_CONFS",
@@ -7361,16 +7815,58 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
-            "3000:3000/tcp"
+            "3000:3000/tcp",
+            "3001:3001/tcp"
         ],
         "volumes": [
             {
                 "container": "/config",
                 "bind": "/volume1/docker/wireshark/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Wps-office",
+        "name": "Wps-office",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/wps-office/config</p>",
+        "description": "[WPS Office](https://www.wps.com/) is a lightweight, feature-rich comprehensive office suite with high compatibility. As a handy and professional office software, WPS Office allows you to edit files in Writer, Presentation, Spreadsheet, and PDF to improve your work efficiency.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/wps-office-icon.png",
+        "image": "linuxserver/wps-office:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "3000:3000/tcp",
+            "3001:3001/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/wps-office/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -7401,7 +7897,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -7413,6 +7909,71 @@
                 "container": "/config",
                 "bind": "/volume1/docker/xbackbone/config"
             }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Your_spotify",
+        "name": "Your_spotify",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p>",
+        "description": "[Your_spotify](https://github.com/Yooooomi/your_spotify) is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/your_spotify-logo.png",
+        "image": "linuxserver/your_spotify:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
+                "name": "APP_URL",
+                "label": "APP_URL",
+                "default": "http://localhost",
+                "description": "The protocol and hostname where the app will be accessed."
+            },
+            {
+                "name": "SPOTIFY_PUBLIC",
+                "label": "SPOTIFY_PUBLIC",
+                "default": "",
+                "description": "Your Spotify application client ID."
+            },
+            {
+                "name": "SPOTIFY_SECRET",
+                "label": "SPOTIFY_SECRET",
+                "default": "",
+                "description": "Your Spotify application secret."
+            },
+            {
+                "name": "CORS",
+                "label": "CORS",
+                "default": "http://localhost:80,https://localhost:443",
+                "description": "Allowed CORS sources, set to `all` to allow any source."
+            },
+            {
+                "name": "MONGO_ENDPOINT",
+                "label": "MONGO_ENDPOINT",
+                "default": "mongodb://mongo:27017/your_spotify",
+                "description": "Set mongodb endpoint address/port."
+            }
+        ],
+        "ports": [
+            "80:80/tcp",
+            "443:443/tcp"
         ],
         "restart_policy": "unless-stopped"
     },
@@ -7442,7 +8003,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
@@ -7482,7 +8043,7 @@
                 "name": "TZ",
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
-                "description": "Specify a timezone to use for example Europe/Amsterdam"
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
             }
         ],
         "ports": [
