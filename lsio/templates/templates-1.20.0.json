@@ -537,7 +537,7 @@
             {
                 "name": "APP_URL",
                 "label": "APP_URL",
-                "default": "",
+                "default": "<yourbaseurl>",
                 "description": "for specifying the IP:port or URL your application will be accessed on (ie. `http://192.168.1.1:6875` or `https://bookstack.mydomain.com`"
             },
             {
@@ -619,6 +619,46 @@
             {
                 "container": "/config",
                 "bind": "/volume1/docker/budge/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Build-agent",
+        "name": "Build-agent",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/build-agent/config</p>",
+        "description": "This container needs special attention. Please check https://hub.docker.com/r/linuxserver/build-agent for details.",
+        "platform": "linux",
+        "logo": "",
+        "image": "linuxserver/build-agent:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            }
+        ],
+        "ports": [
+            "80:80/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/build-agent/config"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -2042,6 +2082,12 @@
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
                 "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
+                "name": "VERBOSITY",
+                "label": "VERBOSITY",
+                "default": "-vv",
+                "description": "Set the container log verbosity. Valid options are -v, -vv, -vvv, -vvvv, or leaving the value blank or not setting the variable."
             }
         ],
         "ports": [
@@ -2358,6 +2404,62 @@
             {
                 "container": "/config",
                 "bind": "/volume1/docker/fleet/config"
+            }
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Flexget",
+        "name": "Flexget",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/flexget/config<br>mkdir -p /volume1/docker/flexget/data</p>",
+        "description": "[Flexget](http://flexget.com/) is a multipurpose automation tool for all of your media.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flexget-banner.png",
+        "image": "linuxserver/flexget:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
+                "name": "FG_LOG_LEVEL",
+                "label": "FG_LOG_LEVEL",
+                "default": "info",
+                "description": "Set the FlexGet logging level."
+            },
+            {
+                "name": "FG_WEBUI_PASSWORD",
+                "label": "FG_WEBUI_PASSWORD",
+                "default": "info",
+                "description": "Set the FlexGet webui password. Pay attention to Bash/YAML reserved characters."
+            }
+        ],
+        "ports": [
+            "5050:5050/tcp"
+        ],
+        "volumes": [
+            {
+                "container": "/config",
+                "bind": "/volume1/docker/flexget/config"
+            },
+            {
+                "container": "/data",
+                "bind": "/volume1/docker/flexget/data"
             }
         ],
         "restart_policy": "unless-stopped"
@@ -2998,6 +3100,46 @@
     },
     {
         "type": 1,
+        "title": "Hishtory-server",
+        "name": "Hishtory-server",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p>",
+        "description": "[hiSHtory](https://github.com/ddworken/hishtory) is a better shell history. It stores your shell history in context (what directory you ran the command in, whether it succeeded or failed, how long it took, etc). This is all stored locally and end-to-end encrypted for syncing to to all your other computers.",
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hishtory-server-icon.png",
+        "image": "linuxserver/hishtory-server:latest",
+        "env": [
+            {
+                "name": "PUID",
+                "label": "PUID",
+                "default": "1024",
+                "description": "for UserID"
+            },
+            {
+                "name": "PGID",
+                "label": "PGID",
+                "default": "100",
+                "description": "for GroupID"
+            },
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "default": "Europe/Amsterdam",
+                "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
+                "name": "HISHTORY_POSTGRES_DB",
+                "label": "HISHTORY_POSTGRES_DB",
+                "default": "postgresql://${HISHTORY_DB_USER}:${HISHTORY_DB_PASS}@hishtory-db:5432/hishtory?sslmode=disable",
+                "description": "Postgres DB [Connection URI](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING). Special characters must be [URL encoded](https://en.wikipedia.org/wiki/URL_encoding)."
+            }
+        ],
+        "ports": [
+            "8080:8080/tcp"
+        ],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
         "title": "Homeassistant",
         "name": "Homeassistant",
         "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/homeassistant/config</p>",
@@ -3141,7 +3283,7 @@
         "title": "Jellyfin",
         "name": "Jellyfin",
         "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/jellyfin/config<br>mkdir -p /volume1/docker/jellyfin/data/tvshows<br>mkdir -p /volume1/docker/jellyfin/data/movies</p>",
-        "description": "[Jellyfin](https://jellyfin.github.io/) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
+        "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/banner-logo-solid.svg?sanitize=true",
         "image": "linuxserver/jellyfin:latest",
@@ -3261,6 +3403,12 @@
                 "label": "DOCKER_HUB_PASSWORD",
                 "default": "PASS",
                 "description": "Optionally specify a DockerHub password to pull private images."
+            },
+            {
+                "name": "DOCKER_MTU",
+                "label": "DOCKER_MTU",
+                "default": "1500",
+                "description": "Optionally specify the mtu options passed to dockerd."
             }
         ],
         "ports": [
@@ -3542,6 +3690,12 @@
                 "label": "DB_PORT",
                 "default": "DB_PORT",
                 "description": "Database port. Required for mysql."
+            },
+            {
+                "name": "IPINFO_APIKEY",
+                "label": "IPINFO_APIKEY",
+                "default": "ACCESS_TOKEN",
+                "description": "Access token from ipinfo.io. Required for detailed IP information."
             }
         ],
         "ports": [
@@ -3711,6 +3865,12 @@
                 "label": "TZ",
                 "default": "Europe/Amsterdam",
                 "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+            },
+            {
+                "name": "DB_CONNECTION",
+                "label": "DB_CONNECTION",
+                "default": "mysql",
+                "description": "for specifying the database type"
             },
             {
                 "name": "DB_HOST",
@@ -5314,6 +5474,12 @@
                 "label": "RTC_CONFIG",
                 "default": "",
                 "description": "Path to a json file containing custom STUN/TURN config (see App Setup notes)"
+            },
+            {
+                "name": "DEBUG_MODE",
+                "label": "DEBUG_MODE",
+                "default": "false",
+                "description": "Set to `true` to debug the http server configuration by logging clients IP addresses used by PairDrop to STDOUT. [See here for more info](https://github.com/schlagmichdoch/PairDrop/blob/master/docs/host-your-own.md#debug-mode). Do not use in production!"
             }
         ],
         "ports": [
